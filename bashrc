@@ -25,3 +25,6 @@ alias grep='grep --color=auto'
 complete -cf sudo
 complete -cf man
 complete -cf which
+
+#dig is in the bind-utils package 'sudo yum install bind-utils'
+alias wanip='dig +short myip.opendns.com @resolver1.opendns.com'
