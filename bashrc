@@ -5,6 +5,11 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
+#git autocomplete script, if exists
+if [ -f ~/.git-completion.bash ]; then
+  . ~/.git-completion.bash
+fi
+  
 # User specific aliases and functions
 
 #colored prompt
@@ -20,6 +25,7 @@ export TERM=xterm
 alias ls='ls --color=auto -B'
 alias ll='ls -lrt --color=auto -B'
 alias grep='grep --color=auto'
+alias gitmaster='git stash; git checkout master; git pull;'
 
 # autocomplete binaries after certain commands
 complete -cf sudo
@@ -28,3 +34,9 @@ complete -cf which
 
 #dig is in the bind-utils package 'sudo yum install bind-utils'
 alias wanip='dig +short myip.opendns.com @resolver1.opendns.com'
+
+export HISTFILESIZE=1000000
+export HISTSIZE=1000000
+
+#user bin on path
+export PATH=$PATH:~/bin

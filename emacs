@@ -37,3 +37,4 @@
 (global-linum-mode 1)
 (setq linum-format "%d ")
 
+(setq vc-follow-symlinks t)
