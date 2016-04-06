@@ -1,4 +1,4 @@
-# .bashrc
+# this file is .bashrc
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
@@ -9,11 +9,18 @@ fi
 if [ -f ~/.git-completion.bash ]; then
   . ~/.git-completion.bash
 fi
-  
-# User specific aliases and functions
 
 #colored prompt
 export PS1='[\[\e[1;34m\]\u@\h\[\e[m\]:\[\e[0;33m\]\W\[\e[m\]]\$ '
+
+if [ -f ~/.git-completion.bash ]; then
+  . ~/.git-prompt.sh
+  export PS1='[\[\e[1;34m\]\u@mbp\[\e[m\]:\[\e[0;33m\]\W\[\e[0;32m\]$(__git_ps1)\[\e[m\]]\$ '
+fi
+
+# User specific aliases and functions
+
+
 
 # User specific aliases and functions
 export EDITOR=emacs
@@ -37,6 +44,7 @@ alias wanip='dig +short myip.opendns.com @resolver1.opendns.com'
 
 export HISTFILESIZE=1000000
 export HISTSIZE=1000000
+shopt -s histappend
 
 #user bin on path
 export PATH=$PATH:~/bin
